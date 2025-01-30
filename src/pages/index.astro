@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [
+  {
+    title: "Air Comfort Pro: The Ultimate Urban Running Companion",
+    slug: "air-comfort-pro-review",
+    date: "2024-04-23",
+    excerpt: "A comprehensive review of the revolutionary Air Comfort Pro running shoes...",
+    image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Hiking the Alps with Sprint Elite X",
+    slug: "hiking-alps-sprint-elite",
+    date: "2024-04-22",
+    excerpt: "Testing out the new Sprint Elite X shoes on challenging Alpine terrain...",
+    image: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Urban Trail Running in Tokyo",
+    slug: "tokyo-trail-running",
+    date: "2024-04-21",
+    excerpt: "Discovering hidden trails and urban adventures in the heart of Tokyo...",
+    image: "https://images.unsplash.com/photo-1604514628550-37477afdf4e3?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Lost in the Amazon Rainforest",
+    slug: "amazon-rainforest-adventure",
+    date: "2024-04-20",
+    excerpt: "An unforgettable journey through the world's largest rainforest...",
+    image: "https://images.unsplash.com/photo-1596395819057-e37d1122043f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Desert Safari in the Sahara",
+    slug: "sahara-desert-safari",
+    date: "2024-04-19",
+    excerpt: "Experiencing the magic of endless sand dunes and starlit nights...",
+    image: "https://images.unsplash.com/photo-1548786811-dd6e453ccca7?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Coastal Running in Cape Town",
+    slug: "cape-town-coastal-run",
+    date: "2024-04-18",
+    excerpt: "Exploring the stunning coastal trails of South Africa's mother city...",
+    image: "https://images.unsplash.com/photo-1506710507565-203b9f24669b?auto=format&fit=crop&w=800&q=80"
+  }
+];
+---
+
+<Layout title="Adventure Travel Blog">
+  <header class="bg-gradient-to-r from-purple-800 to-indigo-900 py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl font-bold mb-6 text-white">Adventure <span class="text-gradient">Travel Blog</span></h1>
+      <p class="text-xl text-gray-200 max-w-2xl mx-auto">
+        Join me on my adventures around the world, testing gear and exploring new horizons.
+      </p>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map(post => (
+        <article class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-200">
+          <div class="aspect-w-16 aspect-h-9">
+            <img 
+              src={post.image} 
+              alt={post.title}
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="text-sm text-indigo-600 mb-2">{post.date}</div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">{post.title}</h2>
+            <p class="text-gray-600 mb-4">{post.excerpt}</p>
+            <a 
+              href={`${import.meta.env.BASE_URL}/posts/${post.slug}`} 
+              class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors duration-200"
+            >
+              Read More
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .text-gradient {
+    background-image: linear-gradient(45deg, #c084fc, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>
